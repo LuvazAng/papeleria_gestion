@@ -5,8 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
@@ -18,25 +16,23 @@ public class facturaModel {
     @Column(name = "id_facturacion")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFacturacion;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private usuarioModel idUsuario;
-    
-    @ManyToOne
-    @JoinColumn(name = "id_cliente")
-    private clienteModel idCliente;
-    
+
+    @Column(name = "id_usuario")
+    private Integer idUsuario;
+
+    @Column(name = "id_cliente")
+    private Integer idCliente;
+
     @Column(name = "fecha_factura")
     private LocalDate fechaFactura;
-    
+
     @Column(name = "total_venta")
     private Double totalVenta;
 
     public facturaModel() {
     }
 
-    public facturaModel(Integer idFacturacion, usuarioModel idUsuario, clienteModel idCliente, LocalDate fechaFactura, Double totalVenta) {
+    public facturaModel(Integer idFacturacion, Integer idUsuario, Integer idCliente, LocalDate fechaFactura, Double totalVenta) {
         this.idFacturacion = idFacturacion;
         this.idUsuario = idUsuario;
         this.idCliente = idCliente;
@@ -52,19 +48,19 @@ public class facturaModel {
         this.idFacturacion = idFacturacion;
     }
 
-    public usuarioModel getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(usuarioModel idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public clienteModel getIdCliente() {
+    public Integer getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(clienteModel idCliente) {
+    public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -83,6 +79,6 @@ public class facturaModel {
     public void setTotalVenta(Double totalVenta) {
         this.totalVenta = totalVenta;
     }
-    
 
+    
 }
