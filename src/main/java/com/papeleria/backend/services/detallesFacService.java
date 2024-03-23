@@ -9,6 +9,6 @@ public interface detallesFacService {
 
     detallesFacModel registrar(detallesFacModel detallesFac);
 
-    detallesFacModel listarId(Integer codigo);
+    detallesFacModel listarId(Integer id);
 
 }

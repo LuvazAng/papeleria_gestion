@@ -8,6 +8,6 @@ public interface productoService {
     List<productoModel> listar();
     productoModel registrar(productoModel producto);
     productoModel actualizar(productoModel producto);
-    void eliminar(Integer codigo);
-    productoModel listarId(Integer codigo);
+    void eliminar(Integer id);
+    productoModel listarId(Integer id);
 }

@@ -10,6 +10,6 @@ public interface usuarioService {
     List<usuarioModel> listar();
     usuarioModel registrar(usuarioModel usuario);
     usuarioModel actualizar(usuarioModel usuario);
-    void eliminar(Integer codigo);
-    usuarioModel listarId(Integer codigo);
+    void eliminar(Integer id);
+    usuarioModel listarId(Integer id);
 }

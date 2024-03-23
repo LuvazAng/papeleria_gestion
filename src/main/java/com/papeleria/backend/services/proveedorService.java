@@ -8,6 +8,6 @@ public interface proveedorService {
     List<proveedorModel> listar();
     proveedorModel registrar(proveedorModel proveedor);
     proveedorModel actualizar(proveedorModel proveedor);
-    void eliminar(Integer codigo);
-    proveedorModel listarId(Integer codigo);
+    void eliminar(Integer id);
+    proveedorModel listarId(Integer id);
 }

@@ -7,6 +7,6 @@ public interface facturaService {
 
     List<facturaModel> listar();
     facturaModel registrar(facturaModel factura);
-    facturaModel listarId(Integer codigo);
+    facturaModel listarId(Integer id);
     
 }

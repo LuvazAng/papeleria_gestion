@@ -8,7 +8,7 @@ public interface clienteService {
     List<clienteModel> listar();
     clienteModel registrar(clienteModel cliente);
     clienteModel actualizar(clienteModel cliente);
-    void eliminar(Integer codigo);
-    clienteModel listarId(Integer codigo);
+    void eliminar(Integer id);
+    clienteModel listarId(Integer id);
     
 }
