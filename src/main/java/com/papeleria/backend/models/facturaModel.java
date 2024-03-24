@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.time.LocalDate;
 
@@ -17,11 +19,13 @@ public class facturaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idFacturacion;
 
-    @Column(name = "id_usuario")
-    private Integer idUsuario;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private usuarioModel idUsuario;
 
-    @Column(name = "id_cliente")
-    private Integer idCliente;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private clienteModel idCliente;
 
     @Column(name = "fecha_factura")
     private LocalDate fechaFactura;
@@ -32,7 +36,7 @@ public class facturaModel {
     public facturaModel() {
     }
 
-    public facturaModel(Integer idFacturacion, Integer idUsuario, Integer idCliente, LocalDate fechaFactura, Double totalVenta) {
+    public facturaModel(Integer idFacturacion, usuarioModel idUsuario, clienteModel idCliente, LocalDate fechaFactura, Double totalVenta) {
         this.idFacturacion = idFacturacion;
         this.idUsuario = idUsuario;
         this.idCliente = idCliente;
@@ -48,19 +52,19 @@ public class facturaModel {
         this.idFacturacion = idFacturacion;
     }
 
-    public Integer getIdUsuario() {
+    public usuarioModel getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(usuarioModel idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Integer getIdCliente() {
+    public clienteModel getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(Integer idCliente) {
+    public void setIdCliente(clienteModel idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -79,6 +83,8 @@ public class facturaModel {
     public void setTotalVenta(Double totalVenta) {
         this.totalVenta = totalVenta;
     }
+
+
 
     
 }

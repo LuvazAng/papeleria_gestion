@@ -18,22 +18,24 @@ public class detallesFacModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDetallesFac;
 
-    @Column(name = "id_facturacion")
-    private Integer idFactura;
-
-    @Column(name = "id_producto")
-    private Integer idProducto;
+    @ManyToOne
+    @JoinColumn(name = "id_facturacion")
+    private facturaModel idFactura;
+    
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
+    private productoModel idProducto;
 
     @Column(name = "cantidad_vendida")
     private Integer cantidadVendida;
-    
+
     @Column(name = "total_venta_unit")
     private Double totalVentaUnit;
 
     public detallesFacModel() {
     }
 
-    public detallesFacModel(Integer idDetallesFac, Integer idFactura, Integer idProducto, Integer cantidadVendida, Double totalVentaUnit) {
+    public detallesFacModel(Integer idDetallesFac, facturaModel idFactura, productoModel idProducto, Integer cantidadVendida, Double totalVentaUnit) {
         this.idDetallesFac = idDetallesFac;
         this.idFactura = idFactura;
         this.idProducto = idProducto;
@@ -49,19 +51,19 @@ public class detallesFacModel {
         this.idDetallesFac = idDetallesFac;
     }
 
-    public Integer getIdFactura() {
+    public facturaModel getIdFactura() {
         return idFactura;
     }
 
-    public void setIdFactura(Integer idFactura) {
+    public void setIdFactura(facturaModel idFactura) {
         this.idFactura = idFactura;
     }
 
-    public Integer getIdProducto() {
+    public productoModel getIdProducto() {
         return idProducto;
     }
 
-    public void setIdProducto(Integer idProducto) {
+    public void setIdProducto(productoModel idProducto) {
         this.idProducto = idProducto;
     }
 
@@ -81,5 +83,6 @@ public class detallesFacModel {
         this.totalVentaUnit = totalVentaUnit;
     }
 
-   
+    
+
 }
