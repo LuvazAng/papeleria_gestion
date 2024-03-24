@@ -22,8 +22,6 @@ public class proveedorModel {
     @Column(name = "telefono_proveedor")
     private String telefonoProveedor;
     
-    @Column(name = "correo_proveedor")
-    private String correoProveedor;
     
     @Column(name = "direccion_proveedor")
     private String direccionProveedor;
@@ -34,11 +32,10 @@ public class proveedorModel {
     public proveedorModel() {
     }
 
-    public proveedorModel(Integer idProvedor, String nombreProveedor, String telefonoProveedor, String correoProveedor, String direccionProveedor, boolean borradoProveedor) {
+    public proveedorModel(Integer idProvedor, String nombreProveedor, String telefonoProveedor, String direccionProveedor, boolean borradoProveedor) {
         this.idProvedor = idProvedor;
         this.nombreProveedor = nombreProveedor;
         this.telefonoProveedor = telefonoProveedor;
-        this.correoProveedor = correoProveedor;
         this.direccionProveedor = direccionProveedor;
         this.borradoProveedor = borradoProveedor;
     }
@@ -65,14 +62,6 @@ public class proveedorModel {
 
     public void setTelefonoProveedor(String telefonoProveedor) {
         this.telefonoProveedor = telefonoProveedor;
-    }
-
-    public String getCorreoProveedor() {
-        return correoProveedor;
-    }
-
-    public void setCorreoProveedor(String correoProveedor) {
-        this.correoProveedor = correoProveedor;
     }
 
     public String getDireccionProveedor() {

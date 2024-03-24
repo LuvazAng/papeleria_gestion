@@ -27,9 +27,7 @@ public class clienteModel {
     
     @Column(name = "telefono_cliente")
     private String telefonoCliente;
-    
-    @Column(name = "correo_cliente")
-    private String correoCliente;
+
     
     @Column(name = "fecha_cliente")
     private String fechaAgregado;
@@ -40,13 +38,12 @@ public class clienteModel {
     public clienteModel() {
     }
 
-    public clienteModel(Integer idCliente, String nombreCliente, String apellPaterno, String apellMaterno, String telefonoCliente, String correoCliente, String fechaAgregado, String borradoCliente) {
+    public clienteModel(Integer idCliente, String nombreCliente, String apellPaterno, String apellMaterno, String telefonoCliente, String fechaAgregado, String borradoCliente) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
         this.apellPaterno = apellPaterno;
         this.apellMaterno = apellMaterno;
         this.telefonoCliente = telefonoCliente;
-        this.correoCliente = correoCliente;
         this.fechaAgregado = fechaAgregado;
         this.borradoCliente = borradoCliente;
     }
@@ -90,14 +87,6 @@ public class clienteModel {
 
     public void setTelefonoCliente(String telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
-    }
-
-    public String getCorreoCliente() {
-        return correoCliente;
-    }
-
-    public void setCorreoCliente(String correoCliente) {
-        this.correoCliente = correoCliente;
     }
 
     public String getFechaAgregado() {
