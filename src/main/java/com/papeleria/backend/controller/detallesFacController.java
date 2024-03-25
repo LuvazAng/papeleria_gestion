@@ -3,6 +3,7 @@ package com.papeleria.backend.controller;
 import com.papeleria.backend.models.clienteModel;
 import com.papeleria.backend.models.detallesFacModel;
 import com.papeleria.backend.services.detallesFacService;
+import java.net.URI;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/detalles")
@@ -28,9 +30,10 @@ public class detallesFacController {
     }
 
     @PostMapping
-    public ResponseEntity<detallesFacModel> registrar(@RequestBody detallesFacModel detalles) {
+    public ResponseEntity<Void> registrar(@RequestBody detallesFacModel detalles) {
         detallesFacModel obj = service.registrar(detalles);
-        return new ResponseEntity<detallesFacModel>(obj, HttpStatus.OK);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{/{id}").buildAndExpand(obj.getIdDetallesFac()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @GetMapping("/{id}")

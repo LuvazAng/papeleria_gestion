@@ -3,6 +3,7 @@ package com.papeleria.backend.controller;
 import com.papeleria.backend.models.detallesFacModel;
 import com.papeleria.backend.models.facturaModel;
 import com.papeleria.backend.services.facturaService;
+import java.net.URI;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/factura")
@@ -28,9 +30,10 @@ public class facturaController {
     }
 
     @PostMapping
-    public ResponseEntity<facturaModel> registrar(@RequestBody facturaModel factura) {
+    public ResponseEntity<Void> registrar(@RequestBody facturaModel factura) {
         facturaModel obj = service.registrar(factura);
-        return new ResponseEntity<facturaModel>(obj, HttpStatus.OK);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("{/id}").buildAndExpand(obj.getIdFacturacion()).toUri();
+        return ResponseEntity.created(uri).build();
     }
 
     @GetMapping("/{id}")
