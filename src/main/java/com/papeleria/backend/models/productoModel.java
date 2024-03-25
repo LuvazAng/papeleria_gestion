@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
@@ -30,7 +31,7 @@ public class productoModel {
     private Integer stock;
 
     @Column(name = "fecha_producto")
-    private LocalTime fechaProducto;
+    private LocalDate fechaProducto;
 
     @Column(name = "borrado_product")
     private boolean borradoProducto;
@@ -38,7 +39,7 @@ public class productoModel {
     public productoModel() {
     }
 
-    public productoModel(Integer idProducto, String nombreProducto, String descripcion, Double precioUnitario, Integer stock, LocalTime fechaProducto, boolean borradoProducto) {
+    public productoModel(Integer idProducto, String nombreProducto, String descripcion, Double precioUnitario, Integer stock, LocalDate fechaProducto, boolean borradoProducto) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.descripcion = descripcion;
@@ -88,11 +89,11 @@ public class productoModel {
         this.stock = stock;
     }
 
-    public LocalTime getFechaProducto() {
+    public LocalDate getFechaProducto() {
         return fechaProducto;
     }
 
-    public void setFechaProducto(LocalTime fechaProducto) {
+    public void setFechaProducto(LocalDate fechaProducto) {
         this.fechaProducto = fechaProducto;
     }
 
