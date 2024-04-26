@@ -22,7 +22,6 @@ public class proveedorModel {
     @Column(name = "telefono_proveedor")
     private String telefonoProveedor;
     
-    
     @Column(name = "direccion_proveedor")
     private String direccionProveedor;
     
