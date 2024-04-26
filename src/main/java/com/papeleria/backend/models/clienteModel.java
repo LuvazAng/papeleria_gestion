@@ -30,21 +30,21 @@ public class clienteModel {
 
     
     @Column(name = "fecha_cliente")
-    private String fechaAgregado;
+    private String fechaCliente;
     
     @Column(name = "borrado_cliente")
-    private String borradoCliente;
+    private boolean borradoCliente;
 
     public clienteModel() {
     }
 
-    public clienteModel(Integer idCliente, String nombreCliente, String apellPaterno, String apellMaterno, String telefonoCliente, String fechaAgregado, String borradoCliente) {
+    public clienteModel(Integer idCliente, String nombreCliente, String apellPaterno, String apellMaterno, String telefonoCliente, String fechaCliente, boolean borradoCliente) {
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
         this.apellPaterno = apellPaterno;
         this.apellMaterno = apellMaterno;
         this.telefonoCliente = telefonoCliente;
-        this.fechaAgregado = fechaAgregado;
+        this.fechaCliente = fechaCliente;
         this.borradoCliente = borradoCliente;
     }
 
@@ -90,18 +90,18 @@ public class clienteModel {
     }
 
     public String getFechaAgregado() {
-        return fechaAgregado;
+        return fechaCliente;
     }
 
-    public void setFechaAgregado(String fechaAgregado) {
-        this.fechaAgregado = fechaAgregado;
+    public void setFechaAgregado(String fechaCliente) {
+        this.fechaCliente = fechaCliente;
     }
 
-    public String getBorradoCliente() {
+    public boolean getBorradoCliente() {
         return borradoCliente;
     }
 
-    public void setBorradoCliente(String borradoCliente) {
+    public void setBorradoCliente(boolean borradoCliente) {
         this.borradoCliente = borradoCliente;
     }
     
