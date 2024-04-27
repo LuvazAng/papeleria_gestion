@@ -10,28 +10,27 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "clientes")
 public class clienteModel {
-   
+
     @Id
     @Column(name = "id_cliente")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idCliente;
-    
+
     @Column(name = "nombre_cliente")
     private String nombreCliente;
-    
+
     @Column(name = "apll_pat_cliente")
     private String apellPaterno;
-    
+
     @Column(name = "apll_mat_cliente")
     private String apellMaterno;
-    
+
     @Column(name = "telefono_cliente")
     private String telefonoCliente;
 
-    
     @Column(name = "fecha_cliente")
     private String fechaCliente;
-    
+
     @Column(name = "borrado_cliente")
     private boolean borradoCliente;
 
@@ -48,7 +47,6 @@ public class clienteModel {
         this.borradoCliente = borradoCliente;
     }
 
-    
     public Integer getIdCliente() {
         return idCliente;
     }
@@ -89,11 +87,11 @@ public class clienteModel {
         this.telefonoCliente = telefonoCliente;
     }
 
-    public String getFechaAgregado() {
+    public String getFechaCliente() {
         return fechaCliente;
     }
 
-    public void setFechaAgregado(String fechaCliente) {
+    public void setFechaCliente(String fechaCliente) {
         this.fechaCliente = fechaCliente;
     }
 
@@ -104,8 +102,5 @@ public class clienteModel {
     public void setBorradoCliente(boolean borradoCliente) {
         this.borradoCliente = borradoCliente;
     }
-    
-    
-    
-    
+
 }
