@@ -2,6 +2,7 @@ package com.papeleria.backend.services;
 
 import com.papeleria.backend.models.productoModel;
 import java.util.List;
+import java.util.Map;
 
 public interface productoService {
 
@@ -14,4 +15,8 @@ public interface productoService {
     void eliminar(Integer id);
 
     productoModel listarId(Integer id);
+    
+    productoModel actualizarParcial(Integer id, Map<String, Object> campos) throws Exception;
+    
+    List<productoModel> obtenerProductosBajoStock(Integer cantidad);
 }

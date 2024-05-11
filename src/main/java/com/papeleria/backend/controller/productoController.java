@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.papeleria.backend.models.productoModel;
+import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -89,5 +91,44 @@ public class productoController {
             throw new Exception("No se encontró cliente");
         }
         return new ResponseEntity<productoModel>(obj, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<productoModel> actualizarParcial(@PathVariable("id") Integer id, @RequestBody Map<String, Object> campos) throws Exception {
+        productoModel producto = service.listarId(id);
+        if (producto == null) {
+            throw new Exception("Producto no encontrado");
+        }
+
+        // Actualiza solo los campos proporcionados
+        campos.forEach((campo, valor) -> {
+            switch (campo) {
+                case "nombreProducto":
+                    producto.setNombreProducto((String) valor);
+                    break;
+                case "descripcion":
+                    producto.setDescripcion((String) valor);
+                    break;
+                case "precioUnitario":
+                    producto.setPrecioUnitario((Double) valor);
+                    break;
+                case "stock":
+                    producto.setStock((Integer) valor);
+                    break;
+                // Agrega más casos según los campos que desees permitir actualizar
+                default:
+                    // Ignora campos desconocidos
+                    break;
+            }
+        });
+
+        productoModel productoActualizado = service.actualizar(producto);
+        return new ResponseEntity<>(productoActualizado, HttpStatus.OK);
+    }
+
+    @GetMapping("/bajo-stock")
+    public ResponseEntity<List<productoModel>> obtenerProductosBajoStock() {
+        List<productoModel> productos = service.obtenerProductosBajoStock(5); // Cambia el número según tus necesidades
+        return new ResponseEntity<>(productos, HttpStatus.OK);
     }
 }
