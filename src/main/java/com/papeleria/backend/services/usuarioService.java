@@ -12,4 +12,5 @@ public interface usuarioService {
     usuarioModel actualizar(usuarioModel usuario);
     void eliminar(Integer id);
     usuarioModel listarId(Integer id);
+    usuarioModel autenticar(String correo, String contrasena);
 }

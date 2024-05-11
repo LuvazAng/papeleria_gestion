@@ -19,10 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/usuarios")
 public class usuarioController {
+
     @Autowired
     private usuarioService service;
-    
-/**
+
+    /**
      * Endpoint para obtener la lista de todos los clientes.
      *
      * @return ResponseEntity con la lista de clientes y estado HTTP OK.
@@ -88,5 +89,17 @@ public class usuarioController {
             throw new Exception("No se encontró cliente");
         }
         return new ResponseEntity<usuarioModel>(obj, HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<usuarioModel> login(@RequestBody usuarioModel usuario) {
+        String correo = usuario.getCorreoUsuario();
+        String contrasena = usuario.getContrasenaUsuario();
+        usuarioModel usuarioAutenticado = service.autenticar(correo, contrasena);
+        if (usuarioAutenticado != null) {
+            return new ResponseEntity<>(usuarioAutenticado, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
 }

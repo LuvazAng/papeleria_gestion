@@ -38,4 +38,9 @@ public class usuarioImplement implements usuarioService {
         return repo.findById(codigo).orElse(null);
     }
 
+    @Override
+    public usuarioModel autenticar(String correo, String contrasena) {
+        return repo.findByCorreoUsuarioAndContrasenaUsuario(correo, contrasena);
+    }
+
 }
