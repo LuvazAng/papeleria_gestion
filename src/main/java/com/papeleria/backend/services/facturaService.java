@@ -8,5 +8,5 @@ public interface facturaService {
     List<facturaModel> listar();
     facturaModel registrar(facturaModel factura);
     facturaModel listarId(Integer id);
-    
+    List<facturaModel> ventaPorMes(int mes, int anio);
 }
