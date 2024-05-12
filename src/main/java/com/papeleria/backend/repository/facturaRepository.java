@@ -9,4 +9,5 @@ public interface facturaRepository extends JpaRepository<facturaModel, Integer> 
 
     List<facturaModel> findByFechaFacturaBetween(LocalDate fechaInicio, LocalDate fechaFin);
 
+    List<facturaModel> findByFechaFactura(LocalDate fecha);
 }

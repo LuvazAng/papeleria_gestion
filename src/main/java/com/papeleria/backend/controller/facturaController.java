@@ -57,4 +57,11 @@ public class facturaController {
         return new ResponseEntity<>(ventas, HttpStatus.OK);
     }
 
+    @GetMapping("/ventas-fecha-actual")
+    public ResponseEntity<List<facturaModel>> obtenerVentasFechaActual() {
+        LocalDate fechaActual = LocalDate.now();
+        List<facturaModel> ventas = service.ventaPorFecha(fechaActual);
+        return new ResponseEntity<>(ventas, HttpStatus.OK);
+    }
+
 }

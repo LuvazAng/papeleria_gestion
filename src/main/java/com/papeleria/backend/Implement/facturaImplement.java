@@ -38,4 +38,9 @@ public class facturaImplement implements facturaService {
         return repo.findByFechaFacturaBetween(fechaInicio, fechaFin);
     }
 
+    @Override
+    public List<facturaModel> ventaPorFecha(LocalDate fecha) {
+        return repo.findByFechaFactura(fecha);
+    }
+
 }
